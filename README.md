@@ -1,2 +1,2 @@
-# C++ Projects
-My full arsenal of C++ projects
+
+My full arsenal of Personal projects
