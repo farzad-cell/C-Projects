@@ -1,61 +1,114 @@
+
+// By Farzad Darwazi 9/28/25
+
 #include<iostream>
 #include<random>
 
 using namespace std;
+
+
 int main() {
-    char player, player1;
+
+    bool exit = false;
+    char player, roll, pick;
+
+    cout<<endl;
+    cout<<"-----------------------------------------"<<endl;
+    cout<<"Welcome to Flip A Coin. Exit code (Q/q).\n-----------------------------------------\nEnter ONLY one of the following\n-----------------------------------------\nCompetitive MODE   --> Y or y\nStandard MODE      --> N or n"<<endl;
+    cout<<"-----------------------------------------"<<endl;
 
 
-    cout<<"Welcome to Flip A Coin.Exit input (Q/q).\nPick ONLY one MODE (Y/y or N/n) \nCompetitive mode   --> Y or y\nFlip a coin        --> N or n"<<endl;
+    random_device rd;
+    mt19937_64 rnd(rd());
+    uniform_int_distribution<int> dist(0,1);
 
-    while(true) {
+    // Main Loop for both Modes
+    while (!exit) {
         cin>>player;
 
-        if(player == 'q' || player == 'Q') {
+        if (player == 'q' || player == 'Q') {
+            exit = true;
             break;
         }
 
-            random_device rd;
-            mt19937_64 rnd(rd());
-            uniform_int_distribution<int> dist(0,1);
-            int fc = dist(rnd);
+        if (player == 'Y' || player == 'y' || player == 'N' || player == 'n') {
 
 
+            if (player == 'Y' || player =='y'){
 
-            if(player == 'Y' || player == 'y') {
-                cout<< "H/h - Heads\nT/t - Tails" <<endl;
+                cout<<"Welcome to the Competitive Mode | Exit code (Q/q), Main Menu (B/b)"<<endl;
 
+                // Competitive Mode
+                while(true) {
 
-                cin>>player1;
+                    cout<< "H/h - Heads\nT/t - Tails" <<endl;
 
-                if(player1 == 'H' || player1 == 'h' || player1 == 'T' || player1 == 't') {
-                    if (player1 == 'H' || player1 == 'h') {
-                        cout<<"You: Heads"<<endl;
-                    }else if (player1 =='T' || player1 == 't') {
-                        cout<<"You: Tails"<<endl;
-                    }else
-                        cout<<"Invalid input! | Chose only one H/h or T/t"<<endl;
+                    cin>>pick;
 
-                    if(fc == 0) {
-                        cout<<"Coin Flip*\nHeads"<<endl;
-                    }else if (fc == 1){
-                        cout<<"Coin Flip*\nTails"<<endl;
+                    if (pick == 'q' || pick == 'Q') {
+                        exit = true;
+                        break;
+                    }
+
+                    int fc = dist(rnd);
+
+                    if (pick == 'B' || pick == 'b') {
+                        cout<< "Main menu | Exit(Q/q) \nPick ONLY one MODE (Y/y or N/n) \nCompetitive mode   --> Y or y\nFlip a coin        --> N or n" <<endl;
+                        break;
+                    }
+
+                    if(pick == 'H' || pick == 'h' || pick == 'T' || pick == 't') {
+                        if (pick == 'H' || pick == 'h') {
+                            cout<<"You: Heads"<<endl;
+                        }else if (pick =='T' || pick == 't') {
+                            cout<<"You: Tails"<<endl;
+                        }else
+                            cout<<"Invalid input! | Chose only one H/h or T/t"<<endl;
+
+                        if(fc == 0) {
+                            cout<<"Coin Flip*\nHeads"<<endl;
+                        }else if (fc == 1){
+                            cout<<"Coin Flip*\nTails"<<endl;
+                        }
                     }
                 }
-            }else if(!(player == 'Y' || player == 'y' || player == 'N' || player == 'n')) {
-                cout<<"Invalid input! | Chose only one Y,y or N,n"<<endl;
+            }else if (player == 'N' || player == 'n') {
+
+                cout<< "Welcome to the Standard Coin Flip | Exit(Q/q), Main Menu (B/b)" <<endl;
+                cout<<"Press Any alphabet for coin flip"<<endl;
+
+                // Standard Mode loop
+                while(true) {
+
+                    cin>> roll;
+
+
+                    if (roll == 'q' || roll == 'Q') {
+                        exit = true;
+                        break;
+                    }
+
+                    int fc = dist(rnd);
+
+                    if(roll == 'B' || roll == 'b') {
+                        cout<< "Main menu | Exit(Q/q) \nPick ONLY one MODE (Y/y or N/n) \nCompetitive mode   --> Y or y\nFlip a coin        --> N or n" <<endl;
+                        break;
+                    }
+
+                    cout<<"Coin Flip: ";
+                    if(fc == 1) {
+                        cout<<"Tails"<<endl;
+                    }else if (fc == 0){
+                        cout<<"Heads"<<endl;
+                    }
+                }
+                }
+
+
+        }else
+            cout<<"Invalid input! | Chose only one Y,y or N,n"<<endl;
                 continue;
-            }
-
-
-            if(player == 'n' || player == 'N') {
-
-            cout<<"FC: ";
-            if(fc == 1) {
-                cout<<"Tails"<<endl;
-            }else if (fc == 0){
-                cout<<"Heads"<<endl;
-            }
         }
-        }
+
     }
+
