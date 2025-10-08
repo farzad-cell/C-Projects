@@ -38,12 +38,15 @@ int main() {
 
                 cout<<"Welcome to the Competitive Mode | Exit code (Q/q), Main Menu (B/b)"<<endl;
 
+                cout << "\n************\nH/h - Heads\nT/t - Tails\n************" << endl;
+
                 // Competitive Mode
                 while(true) {
 
-                    cout<< "H/h - Heads\nT/t - Tails" <<endl;
-
+                    
+                    cout << endl;
                     cin>>pick;
+                    cout << endl;
 
                     if (pick == 'q' || pick == 'Q') {
                         exit = true;
@@ -57,19 +60,32 @@ int main() {
                         break;
                     }
 
-                    if(pick == 'H' || pick == 'h' || pick == 'T' || pick == 't') {
+                    if (pick == 'H' || pick == 'h' || pick == 'T' || pick == 't') {
                         if (pick == 'H' || pick == 'h') {
-                            cout<<"You: Heads"<<endl;
-                        }else if (pick =='T' || pick == 't') {
-                            cout<<"You: Tails"<<endl;
-                        }else
-                            cout<<"Invalid input! | Chose only one H/h or T/t"<<endl;
-
-                        if(fc == 0) {
-                            cout<<"Coin Flip*\nHeads"<<endl;
-                        }else if (fc == 1){
-                            cout<<"Coin Flip*\nTails"<<endl;
+                            cout << "You: Heads" << endl;
                         }
+                        else if (pick == 'T' || pick == 't') {
+                            cout << "You: Tails" << endl;
+                        }
+                        else
+                            cout << "Invalid input! | Chose only one H/h or T/t" << endl;
+
+                        if (fc == 0) {
+                            cout << "Coin Flip is...\nHeads" << endl;
+                            
+                        }
+                        else if (fc == 1) {
+                            cout << "Coin Flip is...\nTails" << endl;
+                            
+                        }
+                        if (pick == 'H' || pick == 'h' && fc == 0) {
+                            cout << "Good Guess :D" << endl;
+                        }else if (pick == 'T' || pick == 't' && fc == 1) {
+                            cout << "Good Guess :D" << endl;
+                        }else
+                            cout << "Wrong guess :p  Try again" << endl;
+                        
+                        
                     }
                 }
             }else if (player == 'N' || player == 'n') {
