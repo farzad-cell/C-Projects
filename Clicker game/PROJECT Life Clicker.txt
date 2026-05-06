@@ -1,0 +1,19 @@
+PROJECT: Life Clicker
+DESCRIPTION: 
+life simulation like bitlife and clicker game mixed. 
+clicker part made to simulate "Work" minigame same as      cookie clicker
+MECHANIC: 
+income, going to gym about any type of activity must be done with the clicker 
+use of clicker will generate fatigue
+Todo:
+1. Main UI
+- Age up button
+- Stat bars | health, happiness, smartness, looks, fatigue/tiredness
+- Buttons | Activity, relationship, shop, career
+
+math for centering the rectangle on the circle
+float rectX = circleX - rectW / 2;
+float rectY = circleY - rectH / 2;
+
+CHANGE
+-move imports in a seprate new file
